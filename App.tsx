@@ -142,8 +142,8 @@ const App: React.FC = () => {
             </div>
             
             <h1 className="text-5xl md:text-8xl font-extrabold leading-[1.1] mb-8 tracking-tight">
-              Vendas não são sorte. <br /> 
-              São <span className="gradient-text italic">Dados Integrados</span>.
+              Vendas não são sorte <br /> 
+              São <span className="gradient-text italic">Dados Integrados</span>
             </h1>
             
             <p className="text-gray-400 text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-light">
@@ -188,7 +188,7 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-20 text-center">
               <span className="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4 block">O Ecossistema LCAI</span>
-              <h2 className="text-4xl md:text-6xl font-bold">Inteligência que <span className="gradient-text">Conecta e Escala</span>.</h2>
+              <h2 className="text-4xl md:text-6xl font-bold">Inteligência que <span className="gradient-text">Conecta e Escala</span></h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -263,16 +263,17 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="relative group">
-                <div className="absolute -inset-10 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none group-hover:bg-blue-600/20 transition-all"></div>
-                <div className="glass-card p-1 rounded-[3rem] overflow-hidden relative border border-white/10">
+                <div className="absolute -inset-10 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none group-hover:bg-blue-600/30 transition-all"></div>
+                <div className="glass-card p-1.5 rounded-[3rem] overflow-hidden relative border border-white/10 min-h-[400px] flex items-center justify-center bg-zinc-900">
                   <img 
-                    src="https://images.unsplash.com/photo-1551288049-bbda38656ad1?auto=format&fit=crop&q=80&w=1000" 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" 
                     alt="LCAI Data Intelligence" 
-                    className="w-full h-auto rounded-[2.9rem] opacity-70 grayscale group-hover:grayscale-0 transition-all duration-1000" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-1000" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-10">
-                    <p className="text-white font-black text-4xl mb-2 italic tracking-tighter">DATA-DRIVEN ROI</p>
-                    <p className="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs">A LCAI é a sua infraestrutura de crescimento</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
+                  <div className="relative z-10 p-10 text-center w-full">
+                    <p className="text-white font-black text-4xl md:text-5xl mb-4 italic tracking-tighter leading-none">DATA-DRIVEN ROI</p>
+                    <p className="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs max-w-[280px] mx-auto">A LCAI é a sua infraestrutura de crescimento</p>
                   </div>
                 </div>
               </div>
@@ -284,7 +285,7 @@ const App: React.FC = () => {
         <section className="py-40 relative overflow-hidden">
           <div className="absolute bottom-0 left-0 w-full h-1/2 bg-blue-600/5 blur-[100px] pointer-events-none"></div>
           <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-            <h2 className="text-4xl md:text-7xl font-bold mb-10 leading-tight">Chega de operar no <br/> <span className="gradient-text italic">escuro técnico.</span></h2>
+            <h2 className="text-4xl md:text-7xl font-bold mb-10 leading-tight">Chega de operar no <br/> <span className="gradient-text italic">escuro técnico</span></h2>
             <p className="text-gray-400 text-xl md:text-2xl mb-16 max-w-2xl mx-auto leading-relaxed font-light">
               Profissionalize sua aquisição. Integre seus dados e automatize seu lucro com a <span className="text-white font-medium">LCAI</span>.
             </p>
@@ -315,7 +316,7 @@ const App: React.FC = () => {
                <span className="hover:text-pink-500 cursor-pointer transition-colors">Instagram</span>
             </div>
             <div className="text-gray-600 text-[10px] text-center md:text-right uppercase tracking-[0.2em] font-bold">
-              <p>© 2024 LCAI - Automações Inteligentes <br/> Engenharia de Dados & Performance v1.1.0</p>
+              <p>© 2024 LCAI - Automações Inteligentes <br/> Engenharia de Dados & Performance v1.1.1</p>
             </div>
           </div>
         </div>
