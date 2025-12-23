@@ -21,7 +21,8 @@ import {
   Share2,
   Briefcase,
   AlertTriangle,
-  Sparkles
+  Sparkles,
+  PlayCircle
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -68,7 +69,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-3 border-b border-white/5' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-3 border-b border-white/5 shadow-2xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
         <a href="#home" className="flex items-center group shrink-0">
           <img src={LOGO_URL} alt="LCAI" className="h-8 md:h-12 w-auto object-contain" />
@@ -77,7 +78,7 @@ const Navbar = () => {
            <a href="#inteligencia" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Inteligência</a>
            <a href="#servicos" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Soluções</a>
            <a href="#metodo" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Metodologia</a>
-           <a href="#diagnostico" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Consultoria</a>
+           <a href="#depoimentos" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Resultados</a>
         </div>
         <a 
           href={WHATSAPP_LINK} 
@@ -228,7 +229,7 @@ const App: React.FC = () => {
                       Proprietário
                     </div>
                   )}
-                  <div className={`absolute -top-4 -right-4 p-8 opacity-5 group-hover:opacity-15 transition-opacity`}>
+                  <div className={`absolute -top-4 -right-4 p-8 opacity-5 group-hover:opacity-15 transition-opacity text-white`}>
                     <s.icon size={100} />
                   </div>
                   <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-6 md:mb-8 ${
@@ -325,6 +326,69 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        {/* SEÇÃO 05: DEPOIMENTOS */}
+        <section id="depoimentos" className="py-20 md:py-32 scroll-mt-20">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <SectionHeader 
+              tag="05. Prova Social"
+              title={<>Quem Confia na <br className="hidden md:block"/> <span className="text-blue-500">Engenharia LCAI</span></>}
+              subtitle="Resultados reais de quem profissionalizou a operação e blindou o lucro com nossa tecnologia."
+            />
+
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+              {/* Depoimento 1: Dr. Rafael Oliveira */}
+              <div className="glass-card p-6 md:p-8 rounded-[2rem] border border-white/5 flex flex-col gap-6">
+                <div className="relative aspect-[9/16] w-full max-w-[320px] mx-auto overflow-hidden rounded-2xl border border-white/10 bg-black">
+                  <video 
+                    className="w-full h-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src="https://midias.lcai.com.br/images/2025/12/23/WhatsApp-Video-2025-12-23-at-11.07.18.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-blue-600/80 backdrop-blur-md rounded-full text-[8px] font-black uppercase tracking-widest">
+                    <PlayCircle size={10} /> Case Jurídico
+                  </div>
+                </div>
+                <div className="text-center md:text-left">
+                  <h4 className="text-xl md:text-2xl font-bold italic tracking-tighter uppercase text-white mb-1">Dr. Rafael Oliveira</h4>
+                  <p className="text-blue-500 text-xs md:text-sm font-black uppercase tracking-widest mb-3">Advogado Trabalhista</p>
+                  <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed">
+                    "A LCAI transformou a forma como captamos e qualificamos leads no setor jurídico. A automação trouxe uma eficiência que nunca tivemos antes."
+                  </p>
+                </div>
+              </div>
+
+              {/* Depoimento 2: Rodrigo Brasil */}
+              <div className="glass-card p-6 md:p-8 rounded-[2rem] border border-white/5 flex flex-col gap-6">
+                <div className="relative aspect-[9/16] w-full max-w-[320px] mx-auto overflow-hidden rounded-2xl border border-white/10 bg-black">
+                  <video 
+                    className="w-full h-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src="https://midias.lcai.com.br/images/2025/10/29/SnapInsta.to_AQPs7go2DOq63fJvOG9JW0PJdlaVlgWc47GzWe5827TiEpg8p93rTICtC5puzMZR0h6kajKwEZ5pYdpt5EFuQs225SDgOFneHlCQPu8.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-cyan-600/80 backdrop-blur-md rounded-full text-[8px] font-black uppercase tracking-widest">
+                    <PlayCircle size={10} /> Case E-commerce
+                  </div>
+                </div>
+                <div className="text-center md:text-left">
+                  <h4 className="text-xl md:text-2xl font-bold italic tracking-tighter uppercase text-white mb-1">Rodrigo Brasil</h4>
+                  <p className="text-cyan-500 text-xs md:text-sm font-black uppercase tracking-widest mb-3">Proprietário da Spiderfit</p>
+                  <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed">
+                    "No e-commerce de acessórios fitness, cada dado conta. A inteligência da LCAI nos deu o controle que precisávamos para escalar com ROI garantido."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-20 md:py-32 bg-black/20">
           <div className="max-w-3xl mx-auto px-4 md:px-6">
@@ -365,11 +429,12 @@ const App: React.FC = () => {
               <nav className="flex flex-wrap gap-6 md:gap-8 mb-10 md:mb-12">
                  <a href="#inteligencia" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Dados</a>
                  <a href="#servicos" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Tecnologia</a>
+                 <a href="#depoimentos" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Resultados</a>
                  <a href="#diagnostico" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Contato</a>
               </nav>
               <p className="text-gray-700 text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold">
                 © 2024 LCAI - Automações Inteligentes <br className="md:hidden"/> 
-                Proprietary Tech v12.0 | Stable Deploy
+                Proprietary Tech v13.0 | Video Proof Social
               </p>
             </div>
           </div>
