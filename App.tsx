@@ -25,7 +25,8 @@ import {
   BarChart3,
   Share2,
   Briefcase,
-  LayoutGrid
+  LayoutGrid,
+  AlertTriangle
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -107,17 +108,17 @@ const App: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full hero-glow pointer-events-none opacity-40"></div>
           
           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass border border-white/10 text-blue-400 text-[10px] font-black mb-10 tracking-[0.4em] uppercase">
-              <Activity size={14} className="animate-pulse" /> Engenharia de Dados de Alta Performance
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass border border-red-500/20 text-red-400 text-[10px] font-black mb-10 tracking-[0.4em] uppercase">
+              <AlertTriangle size={14} className="animate-pulse" /> ALERTA DE MERCADO: JANEIRO 2026
             </div>
             
             <h1 className="text-5xl md:text-[9rem] font-black leading-[0.85] mb-12 tracking-tighter uppercase">
-              Dados que <br /> 
-              Geram <span className="gradient-text italic inline-block pr-12">Escala</span>
+              Comece 2026 com <br /> 
+              <span className="gradient-text italic inline-block pr-12">Clareza Total</span>
             </h1>
             
-            <p className="text-gray-400 text-lg md:text-3xl mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-              Na <span className="text-white font-bold">LCAI</span>, nós não gerenciamos campanhas; nós construímos a <span className="text-white italic">infraestrutura tecnológica</span> que torna o crescimento do seu lucro inevitável.
+            <p className="text-gray-400 text-lg md:text-3xl mb-16 max-w-5xl mx-auto leading-relaxed font-light">
+              Os custos com anúncios na Meta subirão <span className="text-white font-bold">12% a partir de Janeiro</span>. Sem engenharia de dados, seu lucro será engolido pelo leilão. Você precisa de <span className="text-white italic">inteligência</span> para investir onde o retorno é garantido.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -231,7 +232,7 @@ const App: React.FC = () => {
             <SectionHeader 
               tag="02. Soluções LCAI"
               title={<>Infraestrutura de <br/> <span className="text-blue-500">Alta Performance</span></>}
-              subtitle="O amadorismo técnico custa caro. Entregamos a stack completa para empresas que buscam escala profissional."
+              subtitle="Proteja sua margem contra o aumento de custos do leilão em 2026. Entregamos a stack completa para escala profissional."
             />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -239,21 +240,21 @@ const App: React.FC = () => {
                 {
                   title: "Gestão de Tráfego",
                   subtitle: "Performance & Lucro",
-                  desc: "Operação profissional em Meta Ads e Google Ads focada em retorno sobre investimento real, não apenas cliques.",
+                  desc: "Operação profissional em Meta Ads e Google Ads focada em retorno sobre investimento real, combatendo o aumento de custos via segmentação inteligente.",
                   icon: TrendingUp,
                   color: "blue"
                 },
                 {
                   title: "Automação de Processos",
                   subtitle: "Escala sem Atrito",
-                  desc: "Integramos sua stack de ferramentas (n8n) para eliminar tarefas manuais e garantir que os dados fluam sem erros.",
+                  desc: "Integramos sua stack de ferramentas (n8n) para eliminar tarefas manuais e garantir que os dados fluam sem erros entre sistemas.",
                   icon: Zap,
                   color: "cyan"
                 },
                 {
                   title: "Agentes de IA",
                   subtitle: "Inteligência Ativa",
-                  desc: "Criação de IAs personalizadas para atendimento, qualificação de leads e análise preditiva de mercado.",
+                  desc: "Criação de IAs personalizadas para atendimento, qualificação de leads e análise preditiva de mercado em tempo real.",
                   icon: Cpu,
                   color: "purple"
                 },
@@ -274,7 +275,7 @@ const App: React.FC = () => {
                 {
                   title: "CRM & Processo Comercial",
                   subtitle: "Eficiência de Fechamento",
-                  desc: "Implementação de CRM e desenho de funis comerciais automatizados para que nenhum lead seja desperdiçado.",
+                  desc: "Implementação de CRM e desenho de funis comerciais automatizados para que nenhum lead gerado seja desperdiçado.",
                   icon: Briefcase,
                   color: "purple"
                 }
@@ -355,7 +356,7 @@ const App: React.FC = () => {
                  Profissionalize <br/> sua <span className="gradient-text inline-block pr-6 pb-2">Operação</span>
                </h2>
                <p className="text-gray-400 text-xl md:text-2xl mb-16 font-light max-w-3xl mx-auto leading-relaxed">
-                 O amadorismo técnico custa 3x mais caro do que a engenharia. Vamos auditar sua infraestrutura e blindar seu lucro.
+                 O amadorismo técnico custa 3x mais caro do que a engenharia. Vamos auditar sua infraestrutura e blindar seu lucro antes do aumento de 12% nos custos.
                </p>
                
                <div className="flex flex-col items-center gap-10">
@@ -387,7 +388,7 @@ const App: React.FC = () => {
              <div className="glass p-8 rounded-[3rem] border border-white/5">
                 {[
                   { q: "A LCAI é uma agência de tráfego?", a: "Não apenas. Somos uma consultoria de engenharia de dados. Enquanto agências 'apertam botões', nós blindamos a infraestrutura para que qualquer agência ou equipe performe melhor com dados limpos e automação." },
-                  { q: "Vocês cuidam de Redes Sociais?", a: "Sim, de forma estratégica. Não fazemos apenas 'posts', criamos posicionamento de marca orientado por dados para aquecer seu funil de vendas." },
+                  { q: "Por que investir em dados antes de Janeiro?", a: "Com o aumento de 12% nos custos da Meta, sua margem de erro diminui. Sem rastreamento perfeito, você estará jogando dinheiro fora no leilão." },
                   { q: "Quais ferramentas de CRM vocês implementam?", a: "Trabalhamos com os principais nomes do mercado (Pipedrive, RD Station, HubSpot) integrando-os via n8n para que sua equipe comercial tenha máxima produtividade." },
                   { q: "Eu perco o acesso ao que for construído?", a: "Nunca. Construímos ativos que pertencem à sua empresa. Se nossa consultoria acabar amanhã, toda a infraestrutura de dados e automação continua rodando no seu ambiente." }
                 ].map((item, i) => (
@@ -422,7 +423,7 @@ const App: React.FC = () => {
               </nav>
               <p className="text-gray-700 text-[10px] uppercase tracking-[0.3em] font-bold">
                 © 2024 LCAI - Automações Inteligentes <br/> 
-                Engenharia de Performance v8.0 | High-Scale
+                Engenharia de Performance v9.0 | High-Urgency
               </p>
             </div>
           </div>
