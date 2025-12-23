@@ -28,7 +28,8 @@ import {
   LayoutGrid,
   AlertTriangle,
   Menu,
-  X
+  X,
+  Sparkles
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -82,7 +83,7 @@ const Navbar = () => {
         </a>
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
            <a href="#inteligencia" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Inteligência</a>
-           <a href="#servicos" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Serviços</a>
+           <a href="#servicos" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Soluções</a>
            <a href="#metodo" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Metodologia</a>
            <a href="#diagnostico" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Consultoria</a>
         </div>
@@ -101,7 +102,7 @@ const Navbar = () => {
 
 const App: React.FC = () => {
   return (
-    <div className="bg-[#020617] text-white overflow-x-hidden selection:bg-blue-600 selection:text-white">
+    <div className="bg-[#020617] text-white overflow-x-hidden selection:bg-blue-600 selection:text-white font-sans">
       <Navbar />
 
       <main>
@@ -143,7 +144,7 @@ const App: React.FC = () => {
             <SectionHeader 
               tag="01. Inteligência de Dados"
               title={<>A Escuridão dos Dados <br className="hidden md:block"/> <span className="text-blue-500">Mata seu Lucro</span></>}
-              subtitle="40% das suas vendas são invisíveis para o Facebook e Google devido ao iOS14 e AdBlockers."
+              subtitle="40% das suas vendas são invisíveis para as redes sociais. Nossa engenharia traz a luz que sua escala precisa."
             />
 
             <div className="grid lg:grid-cols-2 gap-8 md:gap-16">
@@ -155,7 +156,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Sub-Atribuição de Vendas</h4>
-                        <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">Seu dashboard mostra 10 vendas, mas seu banco mostra 15. Você está perdendo a chance de escalar.</p>
+                        <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">Você está vendendo mais do que o painel mostra. Sem saber de onde vem a venda, você não consegue escalar o que funciona.</p>
                       </div>
                     </div>
                   </div>
@@ -167,7 +168,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Engenharia Server-Side</h4>
-                        <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">Enviamos dados direto do servidor, ignorando bloqueios e enviando 100% dos sinais ao algoritmo.</p>
+                        <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">Enviamos dados direto do servidor para o Facebook e Google, ignorando bloqueios de iOS e AdBlockers.</p>
                       </div>
                     </div>
                   </div>
@@ -179,7 +180,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Decisões por Lucro Real</h4>
-                        <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">Dashboards que mostram o ROI real por canal em tempo real.</p>
+                        <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">Nossos dashboards mostram a margem de contribuição e o ROI real por produto em tempo real.</p>
                       </div>
                     </div>
                   </div>
@@ -233,21 +234,63 @@ const App: React.FC = () => {
         <section id="servicos" className="py-20 md:py-32 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <SectionHeader 
-              tag="02. Soluções LCAI"
-              title={<>Infraestrutura de <br className="hidden md:block"/> <span className="text-blue-500">Alta Performance</span></>}
-              subtitle="Proteja sua margem contra o aumento de custos em 2026."
+              tag="02. Soluções de Escala"
+              title={<>A Tecnologia do <br className="hidden md:block"/> <span className="text-blue-500">Próximo Nível</span></>}
+              subtitle="Dominamos as ferramentas que separam os amadores dos grandes players."
             />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {[
-                { title: "Gestão de Tráfego", subtitle: "Performance & Lucro", desc: "Operação profissional em Meta e Google focada em ROI real.", icon: TrendingUp, color: "blue" },
-                { title: "Automação de Processos", subtitle: "Escala sem Atrito", desc: "Integramos sua stack para eliminar tarefas manuais via n8n.", icon: Zap, color: "cyan" },
-                { title: "Agentes de IA", subtitle: "Inteligência Ativa", desc: "Criação de IAs personalizadas para atendimento e qualificação.", icon: Cpu, color: "purple" },
-                { title: "Análise de Dados & BI", subtitle: "Decisões Seguras", desc: "Dashboards avançados para clareza total do seu negócio.", icon: BarChart4, color: "blue" },
-                { title: "Gestão de Redes Sociais", subtitle: "Autoridade Digital", desc: "Posicionamento estratégico orientado por dados e autoridade.", icon: Share2, color: "cyan" },
-                { title: "CRM & Processo Comercial", subtitle: "Eficiência", desc: "Implementação de CRM e funis comerciais automatizados.", icon: Briefcase, color: "purple" }
+                { 
+                  title: "CRM LCAI", 
+                  subtitle: "Tecnologia Própria", 
+                  desc: "Nosso CRM exclusivo com agentes de IA avançados. Qualifica os melhores leads automaticamente e aproxima sua comunicação para fechamentos recordes.", 
+                  icon: Sparkles, 
+                  color: "blue",
+                  featured: true 
+                },
+                { 
+                  title: "Gestão de Tráfego", 
+                  subtitle: "Performance & Lucro", 
+                  desc: "Operação profissional focada em ROI real, combatendo o aumento do leilão com segmentação técnica e criativos orientados a dados.", 
+                  icon: TrendingUp, 
+                  color: "blue" 
+                },
+                { 
+                  title: "Automação n8n", 
+                  subtitle: "Processos Inteligentes", 
+                  desc: "Eliminamos o trabalho manual. Integramos sua operação ponta a ponta para que os dados fluam sem erros entre CRM, planilhas e anúncios.", 
+                  icon: Zap, 
+                  color: "cyan" 
+                },
+                { 
+                  title: "Análise de Dados", 
+                  subtitle: "Clareza de Negócio", 
+                  desc: "Dashboards que consolidam marketing, vendas e financeiro. Saiba exatamente quanto cada real investido está trazendo de lucro.", 
+                  icon: BarChart4, 
+                  color: "blue" 
+                },
+                { 
+                  title: "Redes Sociais", 
+                  subtitle: "Autoridade Digital", 
+                  desc: "Gestão estratégica de conteúdo focada em quebrar objeções e preparar o lead para o momento da compra.", 
+                  icon: Share2, 
+                  color: "cyan" 
+                },
+                { 
+                  title: "Agentes de IA", 
+                  subtitle: "Atendimento 24/7", 
+                  desc: "IAs treinadas com o tom de voz da sua marca para qualificar leads, tirar dúvidas e realizar agendamentos de forma autônoma.", 
+                  icon: Cpu, 
+                  color: "purple" 
+                }
               ].map((s, i) => (
-                <div key={i} className="glass-card p-6 md:p-10 rounded-[1.5rem] md:rounded-[3rem] group relative overflow-hidden flex flex-col h-full border border-white/5">
+                <div key={i} className={`glass-card p-6 md:p-10 rounded-[1.5rem] md:rounded-[3rem] group relative overflow-hidden flex flex-col h-full border ${s.featured ? 'border-blue-500/40 bg-blue-600/5' : 'border-white/5'}`}>
+                  {s.featured && (
+                    <div className="absolute top-6 right-6 px-3 py-1 bg-blue-600 text-[8px] font-black uppercase tracking-widest rounded-full animate-pulse z-10">
+                      Exclusivo
+                    </div>
+                  )}
                   <div className={`absolute -top-4 -right-4 p-8 opacity-5 group-hover:opacity-15 transition-opacity`}>
                     <s.icon size={80} md={120} />
                   </div>
@@ -278,10 +321,10 @@ const App: React.FC = () => {
                 />
                 <div className="space-y-8 md:space-y-12">
                   {[
-                    { step: "01", title: "Análise & Planejamento", desc: "Identificamos gargalos na operação atual ou planejamos do zero para novas escalas.", icon: Search },
-                    { step: "02", title: "Desenho da Solução", desc: "Diagrama técnico de fluxos de dados e conectores de API customizados.", icon: Target },
-                    { step: "03", title: "Deploy e Setup", desc: "Implementamos n8n, CAPI e Dashboards no seu ambiente cloud.", icon: Code2 },
-                    { step: "04", title: "Governança e Ativo", desc: "Monitoramento e transferência de conhecimento para sua equipe.", icon: ShieldCheck }
+                    { step: "01", title: "Diagnóstico de Operação", desc: "Auditamos seus dados e processos para encontrar onde o lucro está sendo desperdiçado.", icon: Search },
+                    { step: "02", title: "Engenharia de Fluxo", desc: "Desenhamos a arquitetura de dados e configuramos o CRM LCAI para sua necessidade específica.", icon: Target },
+                    { step: "03", title: "Setup e Integração", desc: "Implementamos a stack técnica (CAPI, n8n, IA) diretamente no seu ecossistema comercial.", icon: Code2 },
+                    { step: "04", title: "Otimização de Conversão", desc: "Ajustamos a comunicação e a qualificação dos leads para garantir a máxima escala.", icon: ShieldCheck }
                   ].map((m, i) => (
                     <div key={i} className="flex gap-4 md:gap-8 group">
                       <div className="shrink-0 w-10 h-10 md:w-14 md:h-14 bg-white/5 rounded-xl md:rounded-2xl flex items-center justify-center text-blue-500 font-black text-lg md:text-xl border border-white/5 group-hover:bg-blue-600 group-hover:text-white transition-all">
@@ -300,7 +343,7 @@ const App: React.FC = () => {
                     <div className="absolute inset-0 bg-blue-600/5 blur-[120px] rounded-full"></div>
                     <div className="glass p-1 rounded-[4rem] border border-white/10 overflow-hidden">
                        <img 
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" 
+                        src="https://images.unsplash.com/photo-1551288049-bbbda536ad37?q=80&w=2070&auto=format&fit=crop" 
                         alt="Engenharia de Dados" 
                         className="w-full h-[600px] object-cover rounded-[3.8rem] opacity-40 grayscale hover:grayscale-0 transition-all duration-700"
                        />
@@ -323,7 +366,7 @@ const App: React.FC = () => {
                  Profissionalize <br className="md:hidden"/> sua <span className="gradient-text inline-block md:pr-6 pb-2">Operação</span>
                </h2>
                <p className="text-gray-400 text-base md:text-2xl mb-10 md:mb-16 font-light max-w-3xl mx-auto leading-relaxed px-2">
-                 O amadorismo técnico custa caro. Vamos auditar sua infraestrutura e blindar seu lucro antes do aumento de 12% nos custos.
+                 O amadorismo técnico custa caro. Use o <strong>CRM LCAI</strong> para blindar seu lucro e qualificar seus leads antes do aumento de 12% nos custos.
                </p>
                
                <div className="flex flex-col items-center gap-8 md:gap-10">
@@ -338,7 +381,7 @@ const App: React.FC = () => {
                  <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-gray-500 text-[8px] md:text-[10px] font-black uppercase tracking-widest">
                    <div className="flex items-center gap-2"><Lock size={12} className="text-blue-500" /> Ativos Próprios</div>
                    <div className="flex items-center gap-2"><Globe size={12} className="text-blue-500" /> Escala Global</div>
-                   <div className="flex items-center gap-2"><MousePointer2 size={12} className="text-blue-500" /> Atribuição 100%</div>
+                   <div className="flex items-center gap-2"><MousePointer2 size={12} className="text-blue-500" /> Conversão Elevada</div>
                  </div>
                </div>
             </div>
@@ -350,14 +393,14 @@ const App: React.FC = () => {
           <div className="max-w-3xl mx-auto px-4 md:px-6">
              <div className="text-center mb-10 md:mb-16">
                <h2 className="text-3xl md:text-4xl font-black italic mb-3 md:mb-4">Dúvidas Frequentes</h2>
-               <p className="text-gray-500 text-sm md:text-base font-light italic">Tudo o que você precisa saber antes de iniciar.</p>
+               <p className="text-gray-500 text-sm md:text-base font-light italic">Clareza total sobre nossa tecnologia proprietária.</p>
              </div>
              <div className="glass p-6 md:p-8 rounded-[1.5rem] md:rounded-[3rem] border border-white/5">
                 {[
-                  { q: "A LCAI é uma agência de tráfego?", a: "Somos uma consultoria de engenharia de dados. Blindamos a infraestrutura para que sua operação performe melhor." },
-                  { q: "Por que investir em dados agora?", a: "Com o aumento de custos em 2026, sua margem de erro diminui. Sem rastreamento perfeito, você queima orçamento." },
-                  { q: "Quais CRMs vocês implementam?", a: "Pipedrive, RD Station, HubSpot e outros, integrando-os via n8n para máxima produtividade." },
-                  { q: "Eu perco o acesso ao que for construído?", a: "Não. Construímos ativos que pertencem à sua empresa. A infraestrutura roda no seu ambiente." }
+                  { q: "O que é o CRM LCAI?", a: "É nossa tecnologia proprietária desenvolvida para controle total de leads. Ele utiliza IA avançada para identificar quem tem real intenção de compra, automatizando a qualificação e aproximando a comunicação." },
+                  { q: "Como a IA do CRM aumenta a conversão?", a: "A IA analisa o comportamento e as respostas dos leads em tempo real, priorizando os mais qualificados para sua equipe comercial ou disparando automações de fechamento personalizadas." },
+                  { q: "A LCAI cuida do tráfego e do CRM?", a: "Sim. Criamos o ecossistema completo: desde a aquisição do lead via tráfego pago até a gestão e conversão final dentro da nossa tecnologia de CRM." },
+                  { q: "A integração com n8n está inclusa?", a: "Sim, usamos o n8n para conectar o CRM LCAI a qualquer outra ferramenta que você já utilize, garantindo que nada se perca no processo." }
                 ].map((item, i) => (
                   <AccordionItem key={i} question={item.q} answer={item.a} />
                 ))}
@@ -374,7 +417,7 @@ const App: React.FC = () => {
               <img src={LOGO_URL} alt="LCAI" className="h-10 md:h-14 w-auto mb-6 md:mb-8" />
               <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-light mb-6 md:mb-8">
                 LCAI - Automações Inteligentes. <br/>
-                Transformamos caos em clareza através da engenharia de dados e automação avançada.
+                Proprietários do ecossistema de dados que gera escala real para empresas de alta performance.
               </p>
               <div className="flex gap-4">
                  <div className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer text-blue-500 hover:text-white"><Globe size={18} /></div>
@@ -385,12 +428,12 @@ const App: React.FC = () => {
               <p className="text-white font-black text-lg md:text-xl mb-6 italic uppercase tracking-tighter">Otimizando o Presente, <br className="hidden md:block"/> Automatizando o Futuro.</p>
               <nav className="flex flex-wrap gap-6 md:gap-8 mb-10 md:mb-12">
                  <a href="#inteligencia" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Dados</a>
-                 <a href="#servicos" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Serviços</a>
+                 <a href="#servicos" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Tecnologia</a>
                  <a href="#diagnostico" className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Contato</a>
               </nav>
               <p className="text-gray-700 text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold">
                 © 2024 LCAI - Automações Inteligentes <br className="md:hidden"/> 
-                Engenharia de Performance v10.0 | High-Scale
+                Proprietary Tech v11.0 | Extreme Conversion
               </p>
             </div>
           </div>
