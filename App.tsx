@@ -22,7 +22,10 @@ import {
   Globe,
   Lock,
   MousePointer2,
-  BarChart3
+  BarChart3,
+  Share2,
+  Briefcase,
+  LayoutGrid
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -130,7 +133,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 01: INTELIGÊNCIA (O PORQUÊ) */}
+        {/* SEÇÃO 01: INTELIGÊNCIA */}
         <section id="inteligencia" className="py-32 relative bg-zinc-950/40 border-y border-white/5 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-6">
             <SectionHeader 
@@ -222,54 +225,81 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 02: SERVIÇOS (O QUÊ) */}
+        {/* SEÇÃO 02: SERVIÇOS */}
         <section id="servicos" className="py-32 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-6">
             <SectionHeader 
-              tag="02. Nossas Verticais"
-              title={<>A Stack de <span className="text-blue-500">Engenharia</span> <br/> da Nova Economia</>}
-              subtitle="Não entregamos 'posts' ou 'campanhas'. Entregamos sistemas de alta disponibilidade que geram dados e vendas."
+              tag="02. Soluções LCAI"
+              title={<>Infraestrutura de <br/> <span className="text-blue-500">Alta Performance</span></>}
+              subtitle="O amadorismo técnico custa caro. Entregamos a stack completa para empresas que buscam escala profissional."
             />
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
-                  title: "Engenharia de Dados",
-                  subtitle: "Atribuição Server-Side",
-                  desc: "Blindamos seu rastreamento contra iOS14 e Cookies. GTM Server-Side, CAPI do Facebook, Google Enhanced Conversions e BigQuery.",
-                  icon: Server,
+                  title: "Gestão de Tráfego",
+                  subtitle: "Performance & Lucro",
+                  desc: "Operação profissional em Meta Ads e Google Ads focada em retorno sobre investimento real, não apenas cliques.",
+                  icon: TrendingUp,
                   color: "blue"
                 },
                 {
-                  title: "BI & Dashboards",
-                  subtitle: "Clareza de Lucro Real",
-                  desc: "Criamos painéis no Looker Studio que conectam Marketing, CRM e Financeiro. Você verá o CAC, LTV e ROI sem filtros ou mentiras.",
-                  icon: BarChart4,
+                  title: "Automação de Processos",
+                  subtitle: "Escala sem Atrito",
+                  desc: "Integramos sua stack de ferramentas (n8n) para eliminar tarefas manuais e garantir que os dados fluam sem erros.",
+                  icon: Zap,
+                  color: "cyan"
+                },
+                {
+                  title: "Agentes de IA",
+                  subtitle: "Inteligência Ativa",
+                  desc: "Criação de IAs personalizadas para atendimento, qualificação de leads e análise preditiva de mercado.",
+                  icon: Cpu,
                   color: "purple"
                 },
                 {
-                  title: "Automação via IA",
-                  subtitle: "Escala sem Equipe",
-                  desc: "Implementamos infraestrutura n8n para automatizar processos. Qualificamos leads via IA e recuperamos vendas de forma autônoma.",
-                  icon: Network,
+                  title: "Análise de Dados & BI",
+                  subtitle: "Decisões Seguras",
+                  desc: "Dashboards avançados que consolidam dados de marketing, vendas e financeiro para clareza total do negócio.",
+                  icon: BarChart4,
+                  color: "blue"
+                },
+                {
+                  title: "Gestão de Redes Sociais",
+                  subtitle: "Autoridade Digital",
+                  desc: "Posicionamento estratégico e criação de conteúdo orientado a dados para aquecer sua audiência e quebrar objeções.",
+                  icon: Share2,
                   color: "cyan"
+                },
+                {
+                  title: "CRM & Processo Comercial",
+                  subtitle: "Eficiência de Fechamento",
+                  desc: "Implementação de CRM e desenho de funis comerciais automatizados para que nenhum lead seja desperdiçado.",
+                  icon: Briefcase,
+                  color: "purple"
                 }
               ].map((s, i) => (
-                <div key={i} className="glass-card p-12 rounded-[3.5rem] group relative overflow-hidden flex flex-col h-full border border-white/5">
-                  <div className={`absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity`}>
+                <div key={i} className="glass-card p-10 rounded-[3rem] group relative overflow-hidden flex flex-col h-full border border-white/5">
+                  <div className={`absolute -top-4 -right-4 p-8 opacity-5 group-hover:opacity-15 transition-opacity`}>
                     <s.icon size={120} />
                   </div>
-                  <s.icon size={48} className={`mb-8 ${s.color === 'blue' ? 'text-blue-500' : s.color === 'purple' ? 'text-purple-500' : 'text-cyan-500'}`} />
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 ${
+                    s.color === 'blue' ? 'bg-blue-600/10 text-blue-500' : 
+                    s.color === 'purple' ? 'bg-purple-600/10 text-purple-500' : 
+                    'bg-cyan-600/10 text-cyan-500'
+                  }`}>
+                    <s.icon size={28} />
+                  </div>
                   <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">{s.subtitle}</h4>
-                  <h3 className="text-3xl font-bold mb-6 italic tracking-tighter uppercase leading-none">{s.title}</h3>
-                  <p className="text-gray-400 font-light leading-relaxed text-lg">{s.desc}</p>
+                  <h3 className="text-2xl font-bold mb-4 italic tracking-tighter uppercase leading-none">{s.title}</h3>
+                  <p className="text-gray-400 font-light leading-relaxed text-base">{s.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* SEÇÃO 03: METODOLOGIA (O COMO) */}
+        {/* SEÇÃO 03: METODOLOGIA */}
         <section id="metodo" className="py-32 bg-zinc-950/60 border-y border-white/5 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -314,14 +344,14 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 04: CONSULTORIA (O PRÓXIMO PASSO) */}
+        {/* SEÇÃO 04: CONSULTORIA */}
         <section id="diagnostico" className="py-40 relative scroll-mt-20">
           <div className="max-w-5xl mx-auto px-6">
             <div className="glass p-12 md:p-24 rounded-[4rem] border border-white/10 text-center relative overflow-hidden">
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
                
                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] block mb-10">Agendamento de Diagnóstico</span>
-               <h2 className="text-5xl md:text-8xl font-black mb-12 italic leading-[0.9] tracking-tighter uppercase overflow-visible">
+               <h2 className="text-5xl md:text-8xl font-black mb-12 italic leading-[0.9] tracking-tighter uppercase">
                  Profissionalize <br/> sua <span className="gradient-text inline-block pr-6 pb-2">Operação</span>
                </h2>
                <p className="text-gray-400 text-xl md:text-2xl mb-16 font-light max-w-3xl mx-auto leading-relaxed">
@@ -356,10 +386,10 @@ const App: React.FC = () => {
              </div>
              <div className="glass p-8 rounded-[3rem] border border-white/5">
                 {[
-                  { q: "A LCAI é uma agência de tráfego?", a: "Não. Somos uma consultoria de engenharia de dados. Enquanto agências 'apertam botões', nós blindamos a infraestrutura para que qualquer agência ou equipe performe melhor com dados limpos." },
-                  { q: "Quais ferramentas vocês utilizam?", a: "Trabalhamos com o ecossistema Google (GTM, GA4, BigQuery, Looker Studio), Meta CAPI, e infraestrutura própria de automação usando n8n (Self-Hosted)." },
-                  { q: "Eu perco o acesso ao que for construído?", a: "Nunca. Construímos ativos que pertencem à sua empresa. Se nossa consultoria acabar amanhã, toda a infraestrutura de dados e automação continua rodando no seu ambiente." },
-                  { q: "Como os dados ajudam na escala real?", a: "Com atribuição perfeita, você sabe exatamente qual anúncio está vendendo. Isso permite que os algoritmos do Facebook e Google otimizem sua conta com inteligência real, baixando seu CPA drasticamente." }
+                  { q: "A LCAI é uma agência de tráfego?", a: "Não apenas. Somos uma consultoria de engenharia de dados. Enquanto agências 'apertam botões', nós blindamos a infraestrutura para que qualquer agência ou equipe performe melhor com dados limpos e automação." },
+                  { q: "Vocês cuidam de Redes Sociais?", a: "Sim, de forma estratégica. Não fazemos apenas 'posts', criamos posicionamento de marca orientado por dados para aquecer seu funil de vendas." },
+                  { q: "Quais ferramentas de CRM vocês implementam?", a: "Trabalhamos com os principais nomes do mercado (Pipedrive, RD Station, HubSpot) integrando-os via n8n para que sua equipe comercial tenha máxima produtividade." },
+                  { q: "Eu perco o acesso ao que for construído?", a: "Nunca. Construímos ativos que pertencem à sua empresa. Se nossa consultoria acabar amanhã, toda a infraestrutura de dados e automação continua rodando no seu ambiente." }
                 ].map((item, i) => (
                   <AccordionItem key={i} question={item.q} answer={item.a} />
                 ))}
@@ -392,7 +422,7 @@ const App: React.FC = () => {
               </nav>
               <p className="text-gray-700 text-[10px] uppercase tracking-[0.3em] font-bold">
                 © 2024 LCAI - Automações Inteligentes <br/> 
-                Engenharia de Performance v7.0 | High-Scale
+                Engenharia de Performance v8.0 | High-Scale
               </p>
             </div>
           </div>
