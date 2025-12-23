@@ -34,7 +34,7 @@ const WHATSAPP_LINK = "https://wa.me/5519999611441";
 const SectionHeader: React.FC<{ tag: string; title: string; subtitle?: string; light?: boolean }> = ({ tag, title, subtitle, light }) => (
   <div className="mb-20">
     <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">{tag}</span>
-    <h2 className={`text-4xl md:text-7xl font-black italic tracking-tighter leading-none ${light ? 'text-white' : 'text-white'}`}>
+    <h2 className={`text-4xl md:text-7xl font-black italic tracking-tighter leading-tight ${light ? 'text-white' : 'text-white'}`}>
       {title}
     </h2>
     {subtitle && <p className="text-gray-400 text-xl font-light mt-6 max-w-2xl leading-relaxed">{subtitle}</p>}
@@ -85,7 +85,7 @@ const Navbar = () => {
           target="_blank"
           className="bg-blue-600 text-white hover:bg-white hover:text-black px-6 py-3 rounded-full text-[10px] font-black transition-all shadow-xl uppercase tracking-tighter"
         >
-          Diagnóstico de Dados
+          FALAR COM ESPECIALISTA LCAI
         </a>
       </div>
     </nav>
@@ -108,7 +108,7 @@ const App: React.FC = () => {
               <Activity size={14} className="animate-pulse" /> Engenharia de Dados de Alta Performance
             </div>
             
-            <h1 className="text-5xl md:text-[10rem] font-black leading-[0.85] mb-12 tracking-tighter uppercase">
+            <h1 className="text-5xl md:text-[9rem] font-black leading-[0.85] mb-12 tracking-tighter uppercase">
               Dados que <br /> 
               Geram <span className="gradient-text italic inline-block pr-12">Escala</span>
             </h1>
@@ -119,10 +119,11 @@ const App: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
-                href="#diagnostico"
+                href={WHATSAPP_LINK}
+                target="_blank"
                 className="group bg-blue-600 text-white px-12 py-7 rounded-full font-black text-xl flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-[0_30px_60px_-15px_rgba(37,99,235,0.4)]"
               >
-                SOLICITAR PLANO TÉCNICO
+                FALAR COM ESPECIALISTA LCAI
                 <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform" />
               </a>
             </div>
@@ -254,17 +255,14 @@ const App: React.FC = () => {
                   color: "cyan"
                 }
               ].map((s, i) => (
-                <div key={i} className="glass-card p-12 rounded-[3.5rem] group relative overflow-hidden flex flex-col h-full">
+                <div key={i} className="glass-card p-12 rounded-[3.5rem] group relative overflow-hidden flex flex-col h-full border border-white/5">
                   <div className={`absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity`}>
                     <s.icon size={120} />
                   </div>
                   <s.icon size={48} className={`mb-8 ${s.color === 'blue' ? 'text-blue-500' : s.color === 'purple' ? 'text-purple-500' : 'text-cyan-500'}`} />
                   <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">{s.subtitle}</h4>
-                  <h3 className="text-3xl font-bold mb-6 italic tracking-tighter">{s.title}</h3>
-                  <p className="text-gray-400 font-light mb-10 leading-relaxed text-lg">{s.desc}</p>
-                  <div className="mt-auto flex items-center gap-2 text-blue-500 font-black text-xs uppercase tracking-widest group-hover:gap-4 transition-all cursor-pointer">
-                    Saber Detalhes Técnicos <ArrowRight size={14} />
-                  </div>
+                  <h3 className="text-3xl font-bold mb-6 italic tracking-tighter uppercase leading-none">{s.title}</h3>
+                  <p className="text-gray-400 font-light leading-relaxed text-lg">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -282,10 +280,10 @@ const App: React.FC = () => {
                 />
                 <div className="space-y-12">
                   {[
-                    { step: "01", title: "Auditoria Técnica", desc: "Varredura total em pixels, tags e fluxos de CRM. Encontramos os 'furos no balde' de dados.", icon: Search },
-                    { step: "02", title: "Desenho da Solução", desc: "Desenhamos o diagrama de dados e automação que sua escala exige.", icon: Target },
-                    { step: "03", title: "Deploy e Setup", desc: "Implementamos a infraestrutura (n8n, CAPI, BI) no seu ambiente.", icon: Code2 },
-                    { step: "04", title: "Governança", desc: "Monitoramento contínuo para garantir que os dados continuem limpos.", icon: ShieldCheck }
+                    { step: "01", title: "Análise & Planejamento", desc: "Realizamos uma análise completa da sua operação atual para identificar gargalos ou estruturamos o planejamento do zero para novas operações, garantindo escala imediata.", icon: Search },
+                    { step: "02", title: "Desenho da Solução", desc: "Desenhamos o diagrama técnico de fluxos de dados, conectores de API e arquitetura de automação customizada.", icon: Target },
+                    { step: "03", title: "Deploy e Setup", desc: "Implementamos a infraestrutura (n8n Self-Hosted, CAPI, Dashboards) diretamente no seu ambiente de nuvem ou servidor.", icon: Code2 },
+                    { step: "04", title: "Governança e Ativo", desc: "Monitoramento contínuo para garantir a integridade dos dados e transferência de conhecimento para sua equipe.", icon: ShieldCheck }
                   ].map((m, i) => (
                     <div key={i} className="flex gap-8 group">
                       <div className="shrink-0 w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-blue-500 font-black text-xl border border-white/5 group-hover:bg-blue-600 group-hover:text-white transition-all">
@@ -304,10 +302,11 @@ const App: React.FC = () => {
                     <div className="absolute inset-0 bg-blue-600/5 blur-[120px] rounded-full"></div>
                     <div className="glass p-1 rounded-[4rem] border border-white/10 overflow-hidden">
                        <img 
-                        src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070&auto=format&fit=crop" 
-                        alt="Data Analytics" 
-                        className="w-full h-auto rounded-[3.8rem] opacity-50 grayscale hover:grayscale-0 transition-all duration-700"
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop" 
+                        alt="Engenharia de Dados" 
+                        className="w-full h-[600px] object-cover rounded-[3.8rem] opacity-40 grayscale hover:grayscale-0 transition-all duration-700"
                        />
+                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent"></div>
                     </div>
                  </div>
               </div>
@@ -318,14 +317,14 @@ const App: React.FC = () => {
         {/* SEÇÃO 04: CONSULTORIA (O PRÓXIMO PASSO) */}
         <section id="diagnostico" className="py-40 relative scroll-mt-20">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="glass p-16 md:p-24 rounded-[4rem] border border-white/10 text-center relative overflow-hidden">
+            <div className="glass p-12 md:p-24 rounded-[4rem] border border-white/10 text-center relative overflow-hidden">
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
                
                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] block mb-10">Agendamento de Diagnóstico</span>
-               <h2 className="text-5xl md:text-9xl font-black mb-12 italic leading-[0.85] tracking-tighter uppercase">
-                 Profissionalize <br/> sua <span className="gradient-text inline-block pr-12 pb-2">Operação</span>
+               <h2 className="text-5xl md:text-8xl font-black mb-12 italic leading-[0.9] tracking-tighter uppercase overflow-visible">
+                 Profissionalize <br/> sua <span className="gradient-text inline-block pr-6 pb-2">Operação</span>
                </h2>
-               <p className="text-gray-400 text-xl md:text-3xl mb-16 font-light max-w-3xl mx-auto leading-relaxed">
+               <p className="text-gray-400 text-xl md:text-2xl mb-16 font-light max-w-3xl mx-auto leading-relaxed">
                  O amadorismo técnico custa 3x mais caro do que a engenharia. Vamos auditar sua infraestrutura e blindar seu lucro.
                </p>
                
@@ -333,9 +332,9 @@ const App: React.FC = () => {
                   <a 
                    href={WHATSAPP_LINK} 
                    target="_blank"
-                   className="group bg-white text-black px-16 py-9 rounded-full font-black text-2xl flex items-center gap-6 hover:bg-blue-600 hover:text-white transition-all shadow-2xl"
+                   className="group bg-white text-black px-16 py-8 rounded-full font-black text-2xl flex items-center gap-6 hover:bg-blue-600 hover:text-white transition-all shadow-2xl"
                  >
-                   FALAR COM UM ENGENHEIRO
+                   FALAR COM ESPECIALISTA LCAI
                    <ArrowRight size={36} className="group-hover:translate-x-2 transition-transform" />
                  </a>
                  <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-[10px] font-black uppercase tracking-widest">
@@ -348,7 +347,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* FAQ - TÉCNICO E ESTRATÉGICO */}
+        {/* FAQ */}
         <section className="py-32 bg-black/20">
           <div className="max-w-3xl mx-auto px-6">
              <div className="text-center mb-16">
@@ -393,7 +392,7 @@ const App: React.FC = () => {
               </nav>
               <p className="text-gray-700 text-[10px] uppercase tracking-[0.3em] font-bold">
                 © 2024 LCAI - Automações Inteligentes <br/> 
-                Engenharia de Performance v6.0 | Single Page
+                Engenharia de Performance v7.0 | High-Scale
               </p>
             </div>
           </div>
