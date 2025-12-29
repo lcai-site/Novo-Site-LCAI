@@ -56,6 +56,13 @@ const LeadForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Double check mandatory fields
+    if (!formData.nome.trim() || !formData.whatsapp.trim()) {
+      setStatus('error');
+      return;
+    }
+
     setStatus('loading');
 
     try {
@@ -99,23 +106,27 @@ const LeadForm: React.FC = () => {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-1.5">
-          <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Seu Nome</label>
+          <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1 flex items-center gap-1">
+            Seu Nome <span className="text-red-500">*</span>
+          </label>
           <input 
             required
             type="text"
             placeholder="Ex: João Silva"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all placeholder:text-gray-600"
             value={formData.nome}
             onChange={(e) => setFormData({...formData, nome: e.target.value})}
           />
         </div>
         <div className="space-y-1.5">
-          <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Whatsapp (com DDD)</label>
+          <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1 flex items-center gap-1">
+            Whatsapp (com DDD) <span className="text-red-500">*</span>
+          </label>
           <input 
             required
             type="tel"
             placeholder="Ex: 11 99999-9999"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all placeholder:text-gray-600"
             value={formData.whatsapp}
             onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
           />
@@ -126,7 +137,7 @@ const LeadForm: React.FC = () => {
         <textarea 
           placeholder="Conte brevemente sobre seu negócio e seus desafios atuais..."
           rows={4}
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none"
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none placeholder:text-gray-600"
           value={formData.mensagem}
           onChange={(e) => setFormData({...formData, mensagem: e.target.value})}
         ></textarea>
@@ -148,7 +159,11 @@ const LeadForm: React.FC = () => {
       </button>
       
       {status === 'error' && (
-        <p className="text-red-500 text-xs text-center font-bold">Ocorreu um erro ao enviar. Tente novamente ou nos chame no WhatsApp.</p>
+        <div className="bg-red-500/10 border border-red-500/20 p-3 rounded-lg">
+          <p className="text-red-500 text-[10px] text-center font-black uppercase tracking-widest">
+            {!formData.nome || !formData.whatsapp ? 'Preencha os campos obrigatórios (*)' : 'Erro de conexão. Tente novamente ou WhatsApp.'}
+          </p>
+        </div>
       )}
     </form>
   );
@@ -458,7 +473,7 @@ const App: React.FC = () => {
                  <a href="#depoimentos" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Resultados</a>
                  <a href="#analise" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Análise</a>
               </nav>
-              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v19.0</p>
+              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v20.0</p>
             </div>
           </div>
         </div>
