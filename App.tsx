@@ -22,12 +22,15 @@ import {
   Briefcase,
   AlertTriangle,
   Sparkles,
-  PlayCircle
+  PlayCircle,
+  CheckCircle2,
+  Loader2
 } from 'lucide-react';
 
 // --- CONSTANTS ---
 const LOGO_URL = "https://midias.lcai.com.br/images/2025/12/20/Sem-titulo-2-1.png";
 const WHATSAPP_LINK = "https://wa.me/5519999611441";
+const WEBHOOK_URL = "https://n8n.lcai.com.br/webhook/formdados";
 
 // --- COMPONENTS ---
 
@@ -43,21 +46,111 @@ const SectionHeader: React.FC<{ tag: string; title: React.ReactNode; subtitle?: 
   </div>
 );
 
-const AccordionItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="border-b border-white/5 last:border-0">
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-2 md:py-3 flex justify-between items-center text-left hover:text-blue-400 transition-colors"
-      >
-        <span className="text-base md:text-lg font-bold pr-4">{question}</span>
-        <span className="text-blue-500 font-bold text-xl">{isOpen ? '-' : '+'}</span>
-      </button>
-      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-3' : 'max-h-0'}`}>
-        <p className="text-gray-400 text-sm md:text-base leading-relaxed font-light">{answer}</p>
+const LeadForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    whatsapp: '',
+    mensagem: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ nome: '', whatsapp: '', mensagem: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error);
+      setStatus('error');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className="glass p-8 md:p-12 rounded-2xl border border-blue-500/30 text-center animate-in fade-in zoom-in duration-500">
+        <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 size={40} className="text-blue-500" />
+        </div>
+        <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter mb-4">Dados Recebidos!</h3>
+        <p className="text-gray-400 mb-8 font-light">Nossa equipe de engenharia analisará sua operação e entrará em contato em breve via WhatsApp.</p>
+        <button 
+          onClick={() => setStatus('idle')}
+          className="text-blue-500 text-xs font-black uppercase tracking-widest hover:text-white transition-colors"
+        >
+          Enviar Outra Resposta
+        </button>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Seu Nome</label>
+          <input 
+            required
+            type="text"
+            placeholder="Ex: João Silva"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+            value={formData.nome}
+            onChange={(e) => setFormData({...formData, nome: e.target.value})}
+          />
+        </div>
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Whatsapp (com DDD)</label>
+          <input 
+            required
+            type="tel"
+            placeholder="Ex: 11 99999-9999"
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+            value={formData.whatsapp}
+            onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+          />
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Sua Operação (Opcional)</label>
+        <textarea 
+          placeholder="Conte brevemente sobre seu negócio e seus desafios atuais..."
+          rows={4}
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none"
+          value={formData.mensagem}
+          onChange={(e) => setFormData({...formData, mensagem: e.target.value})}
+        ></textarea>
+      </div>
+      
+      <button 
+        disabled={status === 'loading'}
+        type="submit"
+        className="w-full bg-blue-600 hover:bg-white hover:text-black text-white font-black text-lg md:text-xl py-5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-600/20 disabled:opacity-50"
+      >
+        {status === 'loading' ? (
+          <Loader2 className="animate-spin" size={24} />
+        ) : (
+          <>
+            SOLICITAR ANÁLISE TÉCNICA
+            <ArrowRight size={24} />
+          </>
+        )}
+      </button>
+      
+      {status === 'error' && (
+        <p className="text-red-500 text-xs text-center font-bold">Ocorreu um erro ao enviar. Tente novamente ou nos chame no WhatsApp.</p>
+      )}
+    </form>
   );
 };
 
@@ -330,6 +423,21 @@ const App: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* SEÇÃO 06: FORMULÁRIO DE ANÁLISE */}
+        <section id="analise" className="py-8 md:py-12 bg-zinc-950/20 border-t border-white/5 scroll-mt-24">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <SectionHeader 
+              tag="06. Auditoria Gratuita"
+              title={<>Solicite uma <span className="text-blue-500 pr-6">Análise Técnica</span></>}
+              subtitle="Preencha os dados abaixo e receba um diagnóstico exclusivo sobre como blindar seu lucro e escalar sua operação para 2026."
+            />
+
+            <div className="mt-8">
+               <LeadForm />
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* FOOTER */}
@@ -348,8 +456,9 @@ const App: React.FC = () => {
                  <a href="#inteligencia" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Dados</a>
                  <a href="#servicos" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Soluções</a>
                  <a href="#depoimentos" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Resultados</a>
+                 <a href="#analise" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Análise</a>
               </nav>
-              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v18.0</p>
+              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v19.0</p>
             </div>
           </div>
         </div>
