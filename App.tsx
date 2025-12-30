@@ -38,7 +38,7 @@ const SectionHeader: React.FC<{ tag: string; title: React.ReactNode; subtitle?: 
   <div className="mb-2 md:mb-4 overflow-visible">
     <span className="text-blue-500 font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-[9px] md:text-[10px] block mb-1">{tag}</span>
     <div className="overflow-visible -mx-10 md:-mx-16">
-      <h2 className="text-3xl sm:text-4xl md:text-6xl font-black italic tracking-normal leading-[1.3] text-white whitespace-normal md:whitespace-nowrap px-10 md:px-16 py-2">
+      <h2 className="text-3xl sm:text-4xl md:text-6xl font-black italic tracking-normal leading-[2] text-white whitespace-normal md:whitespace-nowrap px-10 md:px-16 py-8">
         {title}
       </h2>
     </div>
@@ -219,7 +219,7 @@ const App: React.FC = () => {
             </div>
             
             <div className="overflow-visible -mx-10 md:-mx-20">
-              <h1 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[1.3] mb-3 md:mb-4 tracking-normal uppercase break-words px-10 md:px-20 py-4">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[2] mb-3 md:mb-4 tracking-normal uppercase break-words px-10 md:px-20 py-12">
                 Comece 2026 com <span className="gradient-text italic inline-block pr-6 md:pr-10">Clareza Total</span>
               </h1>
             </div>
@@ -370,15 +370,15 @@ const App: React.FC = () => {
         </section>
 
         {/* CONSULTORIA */}
-        <section id="diagnostico" className="py-6 md:py-8 relative scroll-mt-24">
+        <section id="diagnostico" className="py-6 md:py-16 relative scroll-mt-24">
           <div className="max-w-5xl mx-auto px-4 md:px-6">
             <div className="glass p-6 md:p-10 rounded-2xl border border-white/10 text-center relative overflow-visible">
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
                <span className="text-blue-500 font-black uppercase text-[8px] md:text-[9px] block mb-2">Diagnóstico de Engenharia</span>
                
                <div className="overflow-visible -mx-12 md:-mx-20">
-                 <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-4 italic leading-[1.3] tracking-normal uppercase px-12 md:px-20 py-4 text-white">
-                   Profissionalize sua <span className="gradient-text inline-block pr-8 md:pr-12">Operação</span>
+                 <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-4 italic leading-[2] tracking-normal uppercase px-12 md:px-20 py-16 text-white">
+                   Profissionalize sua <span className="gradient-text inline-block pr-8 md:pr-12 py-6">Operação</span>
                  </h2>
                </div>
                
@@ -414,7 +414,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="text-center md:text-left overflow-visible">
                   <div className="overflow-visible -mx-4">
-                    <h4 className="text-lg font-bold italic uppercase text-white mb-0.5 px-4 py-2 pr-10">Dr. Rafael Oliveira</h4>
+                    <h4 className="text-lg font-bold italic uppercase text-white mb-0.5 px-4 py-8 pr-10 leading-[2]">Dr. Rafael Oliveira</h4>
                   </div>
                   <p className="text-blue-500 text-[9px] font-black uppercase mb-2">Advogado Trabalhista</p>
                   <p className="text-gray-400 text-[11px] font-light">"Eficiência sem precedentes na captação de leads."</p>
@@ -429,7 +429,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="text-center md:text-left overflow-visible">
                   <div className="overflow-visible -mx-4">
-                    <h4 className="text-lg font-bold italic uppercase text-white mb-0.5 px-4 py-2 pr-10">Rodrigo Brasil</h4>
+                    <h4 className="text-lg font-bold italic uppercase text-white mb-0.5 px-4 py-8 pr-10 leading-[2]">Rodrigo Brasil</h4>
                   </div>
                   <p className="text-cyan-500 text-[9px] font-black uppercase mb-2">Spiderfit</p>
                   <p className="text-gray-400 text-[11px] font-light">"Controle total sobre o ROI. LCAI é indispensável."</p>
@@ -473,7 +473,7 @@ const App: React.FC = () => {
                  <a href="#depoimentos" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Resultados</a>
                  <a href="#analise" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Análise</a>
               </nav>
-              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v20.0</p>
+              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v22.0</p>
             </div>
           </div>
         </div>
