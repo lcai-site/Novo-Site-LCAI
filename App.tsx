@@ -146,7 +146,7 @@ const LeadForm: React.FC = () => {
       <button 
         disabled={status === 'loading'}
         type="submit"
-        className="w-full bg-blue-600 hover:bg-white hover:text-black text-white font-black text-lg md:text-xl py-5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-600/20 disabled:opacity-50"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-lg md:text-xl py-5 rounded-xl transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-600/20 disabled:opacity-50"
       >
         {status === 'loading' ? (
           <Loader2 className="animate-spin" size={24} />
@@ -193,7 +193,7 @@ const Navbar = () => {
         <a 
           href={WHATSAPP_LINK} 
           target="_blank"
-          className="bg-blue-600 text-white hover:bg-white hover:text-black px-4 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] font-black transition-all uppercase tracking-tighter"
+          className="bg-blue-600 text-white hover:bg-blue-700 px-4 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] font-black transition-all uppercase tracking-tighter"
         >
           FALAR COM ESPECIALISTA
         </a>
@@ -215,24 +215,24 @@ const App: React.FC = () => {
           
           <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 text-center">
             <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-2 rounded-full glass border border-red-500/20 text-red-400 text-[8px] md:text-[10px] font-black mb-3 md:mb-4 tracking-[0.2em] md:tracking-[0.4em] uppercase">
-              <AlertTriangle size={12} className="animate-pulse" /> ALERTA: MERCADO 2026
+              <AlertTriangle size={12} className="animate-pulse" /> CRISE DE DADOS: 2026
             </div>
             
             <div className="overflow-visible -mx-10 md:-mx-20">
               <h1 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[2] mb-3 md:mb-4 tracking-normal uppercase break-words px-10 md:px-20 py-12">
-                Comece 2026 com <span className="gradient-text italic inline-block pr-6 md:pr-10">Clareza Total</span>
+                Domine 2026 com <span className="gradient-text italic inline-block pr-6 md:pr-10">Clareza Total</span>
               </h1>
             </div>
             
             <p className="text-gray-400 text-base sm:text-lg md:text-xl mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed font-light px-2">
-              Anúncios subirão <span className="text-white font-bold">12% em Janeiro</span>. Blindamos seu lucro com engenharia de dados de alta performance.
+              A nova <span className="text-white font-bold">alíquota de 12%</span> para investimento em anúncios já está valendo! Blindamos seu lucro com engenharia de dados de alta performance para o cenário atual.
             </p>
             
             <div className="flex justify-center px-4">
               <a 
                 href={WHATSAPP_LINK}
                 target="_blank"
-                className="group bg-blue-600 text-white px-8 md:px-10 py-4 rounded-full font-black text-lg md:text-xl flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-xl"
+                className="group bg-blue-600 text-white px-8 md:px-10 py-4 rounded-full font-black text-lg md:text-xl flex items-center justify-center gap-4 hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20"
               >
                 FALAR COM ESPECIALISTA LCAI
                 <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform hidden sm:block" />
@@ -388,7 +388,7 @@ const App: React.FC = () => {
                <a 
                  href={WHATSAPP_LINK} 
                  target="_blank"
-                 className="inline-flex group bg-white text-black px-10 py-4 rounded-full font-black text-lg md:text-xl items-center justify-center gap-4 hover:bg-blue-600 hover:text-white transition-all shadow-xl"
+                 className="inline-flex group bg-blue-600 text-white px-10 py-4 rounded-full font-black text-lg md:text-xl items-center justify-center gap-4 hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20"
                >
                  FALAR COM ESPECIALISTA LCAI
                  <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform hidden sm:block" />
@@ -445,7 +445,7 @@ const App: React.FC = () => {
             <SectionHeader 
               tag="06. Auditoria Gratuita"
               title={<>Solicite uma <span className="text-blue-500 pr-6">Análise Técnica</span></>}
-              subtitle="Preencha os dados abaixo e receba um diagnóstico exclusivo sobre como blindar seu lucro e escalar sua operação para 2026."
+              subtitle="Preencha os dados abaixo e receba um diagnóstico exclusivo sobre como blindar seu lucro e escalar sua operação ainda em 2026."
             />
 
             <div className="mt-8">
@@ -463,7 +463,7 @@ const App: React.FC = () => {
               <img src={LOGO_URL} alt="LCAI" className="h-16 md:h-20 w-auto mb-4" />
               <p className="text-gray-500 text-[10px] leading-relaxed font-light">
                 LCAI - Automações Inteligentes. <br/>
-                Ecossistema de dados para escala real.
+                Ecossistema de dados para escala real em 2026.
               </p>
             </div>
             <div className="flex flex-col items-start md:items-end md:text-right w-full">
@@ -473,7 +473,7 @@ const App: React.FC = () => {
                  <a href="#depoimentos" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Resultados</a>
                  <a href="#analise" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Análise</a>
               </nav>
-              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2024 LCAI | Proprietary Tech v22.0</p>
+              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2026 LCAI | Proprietary Tech v24.0</p>
             </div>
           </div>
         </div>
