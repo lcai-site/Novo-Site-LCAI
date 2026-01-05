@@ -24,7 +24,11 @@ import {
   Sparkles,
   PlayCircle,
   CheckCircle2,
-  Loader2
+  Loader2,
+  Users,
+  MessageSquare,
+  Heart,
+  ShoppingCart
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -187,7 +191,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-6 lg:gap-10">
            <a href="#inteligencia" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Inteligência</a>
            <a href="#servicos" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Soluções</a>
-           <a href="#metodo" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Metodologia</a>
+           <a href="#funil" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Funil</a>
            <a href="#depoimentos" className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Resultados</a>
         </div>
         <a 
@@ -369,6 +373,74 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        {/* SEÇÃO 04: FUNIL DE RELACIONAMENTO */}
+        <section id="funil" className="py-8 md:py-12 scroll-mt-24">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <SectionHeader 
+              tag="04. Funil de Relacionamento"
+              title={<>Como transformamos <span className="text-blue-500 pr-6">Estranhos em Clientes</span></>}
+              subtitle="Não é sorte, é engenharia. Entenda como guiamos seu cliente do primeiro clique até o fechamento."
+            />
+
+            <div className="mt-12 relative">
+              {/* Vertical line indicator for mobile, hidden on desktop or styled differently */}
+              <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-blue-500/50 via-blue-500/20 to-transparent md:hidden"></div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+                {[
+                  { 
+                    step: "CONSCIÊNCIA", 
+                    icon: Users, 
+                    title: "Atração", 
+                    desc: "Seu cliente ideal vê seu anúncio ou conteúdo pela primeira vez. O foco é captar atenção.",
+                    color: "border-blue-500/20"
+                  },
+                  { 
+                    step: "INTERESSE", 
+                    icon: MessageSquare, 
+                    title: "O Lead", 
+                    desc: "Ele clica e vira um lead. Nosso CRM qualifica quem realmente tem potencial de compra.",
+                    color: "border-blue-500/30"
+                  },
+                  { 
+                    step: "CONFIANÇA", 
+                    icon: Heart, 
+                    title: "Relacionamento", 
+                    desc: "Nossa IA e automações nutrem o lead, quebrando todas as objeções de forma automática.",
+                    color: "border-blue-500/40"
+                  },
+                  { 
+                    step: "CONVERSÃO", 
+                    icon: ShoppingCart, 
+                    title: "A Venda", 
+                    desc: "O cliente está pronto. O time comercial recebe um lead 'quente' ou a venda ocorre direto no site.",
+                    color: "border-blue-500/60"
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className={`relative glass-card p-6 rounded-2xl border-t-2 ${item.color} group transition-all`}>
+                    <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-0">
+                      <div className="w-10 h-10 bg-blue-600/10 rounded-full flex items-center justify-center text-blue-500 mb-0 md:mb-6 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <item.icon size={20} />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-black tracking-widest text-blue-500/70 mb-1 block uppercase">{item.step}</span>
+                        <h4 className="text-xl font-bold mb-3 italic uppercase tracking-tighter">{item.title}</h4>
+                        <p className="text-gray-400 text-xs font-light leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                    {/* Arrow for desktop */}
+                    {idx < 3 && (
+                      <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-blue-500/30">
+                        <ArrowRight size={24} />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CONSULTORIA */}
         <section id="diagnostico" className="py-6 md:py-16 relative scroll-mt-24">
           <div className="max-w-5xl mx-auto px-4 md:px-6">
@@ -473,7 +545,7 @@ const App: React.FC = () => {
                  <a href="#depoimentos" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Resultados</a>
                  <a href="#analise" className="text-[10px] font-black uppercase text-gray-500 hover:text-white transition-colors">Análise</a>
               </nav>
-              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2026 LCAI | Proprietary Tech v24.0</p>
+              <p className="text-gray-700 text-[9px] uppercase font-bold">© 2026 LCAI | Proprietary Tech v25.0</p>
             </div>
           </div>
         </div>
