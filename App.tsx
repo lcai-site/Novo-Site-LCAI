@@ -31,13 +31,15 @@ import {
   ShoppingCart,
   Home,
   Stethoscope,
-  Car
+  Car,
+  Instagram
 } from 'lucide-react';
 
 // --- CONSTANTS ---
 const LOGO_URL = "https://midias.lcai.com.br/images/2025/12/20/Sem-titulo-2-1.png";
 const WHATSAPP_LINK = "https://wa.me/5519999611441";
 const WEBHOOK_URL = "https://n8n.lcai.com.br/webhook/formdados";
+const INSTAGRAM_URL = "https://instagram.com/ocamacho.luis";
 
 // --- COMPONENTS ---
 
@@ -318,7 +320,7 @@ const App: React.FC = () => {
                     </div>
                     <div className="flex gap-4">
                       <div className="w-6 h-6 rounded-full bg-blue-600/20 text-blue-500 flex items-center justify-center text-[10px] font-black shrink-0">3</div>
-                      <p className="text-[11px] text-gray-400 leading-relaxed"><strong className="text-white">Nutrição:</strong> Envio automático de depoimentos de moradores e vídeos da infraestrutura do bairro.</p>
+                      <p className="text-[11px] text-gray-400 leading-relaxed"><strong className="text-white">Nutrição:</strong> Envio automático de catálogos digitais e vídeos curtos do imóvel, tirando dúvidas antes mesmo do corretor ligar.</p>
                     </div>
                   </div>
                   <div className="p-4 bg-white/5 rounded-xl border border-blue-500/20">
@@ -467,12 +469,25 @@ const App: React.FC = () => {
           </div>
         </section>
       </main>
+      {/* FOOTER */}
       <footer className="py-8 md:py-10 border-t border-white/5 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div>
               <img src={LOGO_URL} alt="LCAI" className="h-16 md:h-20 w-auto mb-4" />
-              <p className="text-gray-500 text-[10px] leading-relaxed font-light"> LCAI - Automações Inteligentes. <br/> Ecossistema de dados para escala real em 2026. </p>
+              <p className="text-gray-500 text-[10px] leading-relaxed font-light mb-4"> 
+                LCAI - Automações Inteligentes. <br/> 
+                Ecossistema de dados para escala real em 2026. 
+              </p>
+              <a 
+                href={INSTAGRAM_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/10 transition-all"
+                title="Siga no Instagram"
+              >
+                <Instagram size={18} />
+              </a>
             </div>
             <div className="flex flex-col items-start md:items-end md:text-right w-full">
               <nav className="flex flex-wrap gap-4 md:gap-6 mb-4">
