@@ -35,7 +35,9 @@ import {
   Instagram,
   Quote,
   ExternalLink,
-  Award
+  Award,
+  ChevronRight,
+  ChevronLeft
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -483,26 +485,36 @@ const App: React.FC = () => {
               subtitle="Nossa engenharia de automação é validada pelos maiores players do mercado digital. Resultados que falam por si." 
             />
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              {GALLERY_TESTIMONIALS.map((url, idx) => (
-                <div key={idx} className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
-                  <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] flex items-center justify-center bg-black/40">
-                    <img 
-                      src={url} 
-                      alt={`Depoimento LCAI ${idx + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <div className="flex items-center gap-2">
-                        <Award className="text-blue-500" size={16} />
-                        <span className="text-[10px] font-black uppercase text-white tracking-widest">Case Verificado</span>
+            <div className="relative mt-8 md:mt-12 group/gallery">
+              {/* Mobile Hint - Swipe */}
+              <div className="flex md:hidden items-center justify-center gap-2 mb-4 text-blue-500/50 animate-pulse">
+                <ChevronLeft size={14} />
+                <span className="text-[10px] font-black uppercase tracking-widest">Arraste para o lado</span>
+                <ChevronRight size={14} />
+              </div>
+
+              {/* Responsive Container: Flex on Mobile, Grid on Desktop */}
+              <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide">
+                {GALLERY_TESTIMONIALS.map((url, idx) => (
+                  <div key={idx} className="min-w-full md:min-w-0 snap-center px-4 md:px-0 relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
+                    <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] flex items-center justify-center bg-black/40">
+                      <img 
+                        src={url} 
+                        alt={`Depoimento LCAI ${idx + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div className="flex items-center gap-2">
+                          <Award className="text-blue-500" size={16} />
+                          <span className="text-[10px] font-black uppercase text-white tracking-widest">Case Verificado</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 text-center">
