@@ -32,7 +32,10 @@ import {
   Home,
   Stethoscope,
   Car,
-  Instagram
+  Instagram,
+  Quote,
+  ExternalLink,
+  Award
 } from 'lucide-react';
 
 // --- CONSTANTS ---
@@ -41,17 +44,23 @@ const WHATSAPP_LINK = "https://wa.me/5519999611441";
 const WEBHOOK_URL = "https://n8n.lcai.com.br/webhook/formdados";
 const INSTAGRAM_URL = "https://instagram.com/ocamacho.luis";
 
+const GALLERY_TESTIMONIALS = [
+  "https://midias.lcai.com.br/images/2026/02/12/3.png",
+  "https://midias.lcai.com.br/images/2026/02/12/1.png",
+  "https://midias.lcai.com.br/images/2026/02/12/2.png"
+];
+
 // --- COMPONENTS ---
 
 const SectionHeader: React.FC<{ tag: string; title: React.ReactNode; subtitle?: string }> = ({ tag, title, subtitle }) => (
-  <div className="mb-2 md:mb-4 overflow-visible">
+  <div className="mb-2 md:mb-4 overflow-visible text-center lg:text-left">
     <span className="text-blue-500 font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-[9px] md:text-[10px] block mb-1">{tag}</span>
     <div className="overflow-visible -mx-10 md:-mx-16">
       <h2 className="text-3xl sm:text-4xl md:text-6xl font-black italic tracking-normal leading-[2] text-white whitespace-normal md:whitespace-nowrap px-10 md:px-16 py-8">
         {title}
       </h2>
     </div>
-    {subtitle && <p className="text-gray-400 text-sm md:text-lg font-light mt-1 max-w-3xl leading-relaxed">{subtitle}</p>}
+    {subtitle && <p className="text-gray-400 text-sm md:text-lg font-light mt-1 max-w-3xl leading-relaxed mx-auto lg:mx-0">{subtitle}</p>}
   </div>
 );
 
@@ -424,47 +433,100 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 05: DEPOIMENTOS */}
-        <section id="depoimentos" className="py-4 md:py-6 scroll-mt-24">
+        {/* SEÇÃO 06: DEPOIMENTOS EM VÍDEO */}
+        <section id="depoimentos" className="py-8 md:py-12 scroll-mt-24">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <SectionHeader tag="05. Prova Social" title={<>Quem Confia na <span className="text-blue-500 pr-6">Engenharia LCAI</span></>} />
-            <div className="grid md:grid-cols-2 gap-4 mt-4">
-              <div className="glass-card p-4 rounded-xl border border-white/5 flex flex-col md:flex-row gap-4 items-center">
-                <div className="relative aspect-[9/16] w-full max-w-[140px] md:max-w-[160px] overflow-hidden rounded-lg border border-white/10 bg-black shrink-0">
+            <SectionHeader tag="06. Prova Social" title={<>Experiências de <span className="text-blue-500 pr-6">Sucesso Real</span></>} />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              {/* Depoimento em Vídeo 1 */}
+              <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col md:flex-row gap-6 items-center">
+                <div className="relative aspect-[9/16] w-full max-w-[180px] overflow-hidden rounded-xl border border-white/10 bg-black shrink-0">
                   <video className="w-full h-full object-cover" controls playsInline preload="metadata">
                     <source src="https://midias.lcai.com.br/images/2025/12/23/WhatsApp-Video-2025-12-23-at-11.07.18.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <div className="text-center md:text-left overflow-visible">
-                  <div className="overflow-visible -mx-4">
-                    <h4 className="text-lg font-bold italic uppercase text-white mb-0.5 px-4 py-8 pr-10 leading-[2]">Dr. Rafael Oliveira</h4>
-                  </div>
-                  <p className="text-blue-500 text-[9px] font-black uppercase mb-2">Advogado Trabalhista</p>
-                  <p className="text-gray-400 text-[11px] font-light">"Eficiência sem precedentes na captação de leads."</p>
+                <div className="text-center md:text-left">
+                  <h4 className="text-2xl font-bold italic uppercase text-white mb-1 tracking-tighter">Dr. Rafael Oliveira</h4>
+                  <p className="text-blue-500 text-xs font-black uppercase mb-4">Advogado Trabalhista</p>
+                  <Quote size={32} className="text-blue-500/20 mb-4 mx-auto md:mx-0" />
+                  <p className="text-gray-400 text-sm font-light leading-relaxed italic">"Eficiência sem precedentes na captação de leads. A LCAI profissionalizou nossa entrada de clientes de forma definitiva."</p>
                 </div>
               </div>
-              <div className="glass-card p-4 rounded-xl border border-white/5 flex flex-col md:flex-row gap-4 items-center">
-                <div className="relative aspect-[9/16] w-full max-w-[140px] md:max-w-[160px] overflow-hidden rounded-lg border border-white/10 bg-black shrink-0">
+
+              {/* Depoimento em Vídeo 2 */}
+              <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col md:flex-row gap-6 items-center">
+                <div className="relative aspect-[9/16] w-full max-w-[180px] overflow-hidden rounded-xl border border-white/10 bg-black shrink-0">
                   <video className="w-full h-full object-cover" controls playsInline preload="metadata">
                     <source src="https://midias.lcai.com.br/images/2025/10/29/SnapInsta.to_AQPs7go2DOq63fJvOG9JW0PJdlaVlgWc47GzWe5827TiEpg8p93rTICtC5puzMZR0h6kajKwEZ5pYdpt5EFuQs225SDgOFneHlCQPu8.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <div className="text-center md:text-left overflow-visible">
-                  <div className="overflow-visible -mx-4">
-                    <h4 className="text-lg font-bold italic uppercase text-white mb-0.5 px-4 py-8 pr-10 leading-[2]">Rodrigo Brasil</h4>
-                  </div>
-                  <p className="text-cyan-500 text-[9px] font-black uppercase mb-2">Spiderfit</p>
-                  <p className="text-gray-400 text-[11px] font-light">"Controle total sobre o ROI. LCAI é indispensável."</p>
+                <div className="text-center md:text-left">
+                  <h4 className="text-2xl font-bold italic uppercase text-white mb-1 tracking-tighter">Rodrigo Brasil</h4>
+                  <p className="text-cyan-500 text-xs font-black uppercase mb-4">Spiderfit</p>
+                  <Quote size={32} className="text-cyan-500/20 mb-4 mx-auto md:mx-0" />
+                  <p className="text-gray-400 text-sm font-light leading-relaxed italic">"Controle total sobre o ROI. LCAI é indispensável para qualquer negócio que busca escala real no digital."</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* SEÇÃO 06: FORMULÁRIO DE ANÁLISE */}
-        <section id="analise" className="py-8 md:py-12 bg-zinc-950/20 border-t border-white/5 scroll-mt-24">
+        {/* SEÇÃO 07: RECONHECIMENTO DE ELITE (GALERIA) */}
+        <section id="reconhecimento" className="py-12 md:py-24 bg-zinc-950/40 border-y border-white/5 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] -ml-64 -mb-64"></div>
+          
+          <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <SectionHeader 
+              tag="07. Reconhecimento de Elite" 
+              title={<>Estrategistas que <span className="text-blue-500 pr-6">Confiam na LCAI</span></>} 
+              subtitle="Nossa engenharia de automação é validada pelos maiores players do mercado digital. Resultados que falam por si." 
+            />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {GALLERY_TESTIMONIALS.map((url, idx) => (
+                <div key={idx} className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
+                  <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] flex items-center justify-center bg-black/40">
+                    <img 
+                      src={url} 
+                      alt={`Depoimento LCAI ${idx + 1}`} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <div className="flex items-center gap-2">
+                        <Award className="text-blue-500" size={16} />
+                        <span className="text-[10px] font-black uppercase text-white tracking-widest">Case Verificado</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 text-center">
+              <div className="flex -space-x-3">
+                {[1,2,3,4].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#020617] bg-zinc-800 flex items-center justify-center overflow-hidden">
+                    <Users size={20} className="text-blue-500/50" />
+                  </div>
+                ))}
+                <div className="w-10 h-10 rounded-full border-2 border-[#020617] bg-blue-600 flex items-center justify-center text-[10px] font-black">
+                  +50
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm font-light">
+                Junte-se a mais de <span className="text-white font-bold italic">50 empresas de elite</span> que escalaram suas operações conosco.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 08: FORMULÁRIO DE ANÁLISE */}
+        <section id="analise" className="py-12 md:py-24 bg-[#020617] scroll-mt-24">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <SectionHeader tag="06. Auditoria Gratuita" title={<>Solicite uma <span className="text-blue-500 pr-6">Análise Técnica</span></>} subtitle="Preencha os dados abaixo e receba um diagnóstico exclusivo sobre como blindar seu lucro e escalar sua operação ainda em 2026." />
+            <SectionHeader tag="08. Auditoria Gratuita" title={<>Solicite uma <span className="text-blue-500 pr-6">Análise Técnica</span></>} subtitle="Preencha os dados abaixo e receba um diagnóstico exclusivo sobre como blindar seu lucro e escalar sua operação ainda em 2026." />
             <div className="mt-8"> <LeadForm /> </div>
           </div>
         </section>
